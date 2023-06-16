@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,3 +55,8 @@ Route::get('/promotion', function () {
 Route::get('/index', function () {
     return view('index');
 });
+
+Route::get('/posts/{slug}', [PostController::class, 'show'])
+    ->name('posts.show');
+
+Route::get('/fat', [PostController::class, 'index']);
